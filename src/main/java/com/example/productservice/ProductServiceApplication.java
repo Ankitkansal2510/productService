@@ -106,6 +106,8 @@ public class ProductServiceApplication implements CommandLineRunner {
         userRepositoryJoined.save(userjoined);
 
         MentorJoined mentorjoined= new MentorJoined();
+        mentorjoined.setName("mentor");
+        mentorjoined.setEmail("mentor@gmail.com");
         mentorjoined.setAverageRating(12.22);
         mentorRepositoryJoined.save(mentorjoined);
 
