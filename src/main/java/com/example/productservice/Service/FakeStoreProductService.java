@@ -1,3 +1,4 @@
+/*
 package com.example.productservice.Service;
 
 import com.example.productservice.DTO.GenericProductDto;
@@ -66,3 +67,4 @@ public class FakeStoreProductService implements ProductService {
 
 
 }
+*/

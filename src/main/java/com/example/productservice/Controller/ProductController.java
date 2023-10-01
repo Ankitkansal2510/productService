@@ -3,16 +3,17 @@ package com.example.productservice.Controller;
 import com.example.productservice.DTO.GenericProductDto;
 import com.example.productservice.Exception.NotFoundException;
 import com.example.productservice.Service.ProductService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/products")
 public class ProductController {
-
 
 
     //    @Autowired
@@ -22,10 +23,9 @@ public class ProductController {
     // ...;
 
 
-
     // constructor injection
 //    @Autowired
-    public ProductController(ProductService productService) {
+    public ProductController(@Qualifier("DBProductService") ProductService productService) {
         this.productService = productService;
     }
 //
@@ -35,37 +35,38 @@ public class ProductController {
 //    public void setProductService(ProductService productService) {
 //        this.productService = productService;
 //    }
-
-    // GET /products {}
     @GetMapping
     public List<GenericProductDto> getAllProducts() {
         return productService.getAllProducts();
     }
 
-    // localhost:8080/products/{id}
-    // localhost:8080/products/123
     @GetMapping("{id}")
-    public GenericProductDto getProductById(@PathVariable("id") Long id) throws NotFoundException {
-        return productService.getProductById(id);
+    public ResponseEntity<GenericProductDto> getProductById(@PathVariable("id") UUID id) throws NotFoundException {
+        return new ResponseEntity<>(productService.getProductById(id),HttpStatus.OK);
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<GenericProductDto> deleteProductById(@PathVariable("id") Long id) {
-        return new ResponseEntity<>(
-                productService.deleteProduct(id),
-                HttpStatus.OK
-        );
+    public ResponseEntity<GenericProductDto> deleteProductById(@PathVariable("id") UUID id) throws NotFoundException {
+            return new ResponseEntity<>(productService.deleteProduct(id),HttpStatus.OK);
     }
 
     @PostMapping
-    public GenericProductDto createProduct(@RequestBody GenericProductDto product) {
-//        System.out.println(product.name);
-        return productService.createProduct(product);
+    public ResponseEntity<GenericProductDto> createProduct(@RequestBody GenericProductDto product) {
+        return new ResponseEntity<>(productService.createProduct(product),HttpStatus.OK);
     }
 
     @PutMapping("{id}")
-    public GenericProductDto updateProductById(@PathVariable("id") long id, @RequestBody GenericProductDto product) {
-        return productService.updateProduct(id,product);
+    public ResponseEntity<GenericProductDto> updateProductById(@PathVariable("id") UUID id, @RequestBody GenericProductDto product) {
+        return new ResponseEntity<>(productService.updateProduct(id, product),HttpStatus.OK);
+    }
 
+    @GetMapping("/categories")
+    public ResponseEntity<List<String>> getAllCategory() {
+        return new ResponseEntity<>(productService.getAllCategory(),HttpStatus.OK);
+
+    }
+    @GetMapping("/category/{category}")
+    public ResponseEntity<List<GenericProductDto>> getInCategory(@PathVariable("category") String category) {
+        return new ResponseEntity<>(productService.getInCategory(category),HttpStatus.OK);
     }
 }

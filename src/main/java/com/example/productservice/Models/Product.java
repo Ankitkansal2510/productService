@@ -3,13 +3,18 @@ package com.example.productservice.Models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Builder
+@Getter
+@Setter
 public class Product extends BaseModel {
     private String title;
     private String description;
     private String image;
-    @ManyToOne
+    @ManyToOne(cascade = {jakarta.persistence.CascadeType.ALL})
     private Category category;
     private double price;
     public Product(String title, String description, String image, Category category, double price) {

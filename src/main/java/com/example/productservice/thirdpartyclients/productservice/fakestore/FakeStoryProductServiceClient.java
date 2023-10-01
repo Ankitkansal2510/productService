@@ -1,3 +1,4 @@
+/*
 package com.example.productservice.thirdpartyclients.productservice.fakestore;
 
 import com.example.productservice.DTO.GenericProductDto;
@@ -89,17 +90,20 @@ public class FakeStoryProductServiceClient {
     }
 
     public FakeStoreProductDto updateProduct(long id,GenericProductDto product) {
-       /* RestTemplate restTemplate = restTemplateBuilder.build();
+       */
+/* RestTemplate restTemplate = restTemplateBuilder.build();
 
         product.setId(id);
         RequestCallback requestCallback = restTemplate.acceptHeaderRequestCallback(FakeStoreProductDto.class);
         ResponseExtractor<ResponseEntity<FakeStoreProductDto>> responseExtractor =
                 restTemplate.responseEntityExtractor(FakeStoreProductDto.class);
         ResponseEntity<FakeStoreProductDto> response = restTemplate.execute(specificProductRequestUrl, HttpMethod.PUT,
-                requestCallback, responseExtractor, product,id);*/
+                requestCallback, responseExtractor, product,id);*//*
+
 
 
 
         return null;
     }
 }
+*/

@@ -20,7 +20,10 @@ public class UserJoined {
 }
 /**
  *
- * Single table will crate one table which will have all the columns from all the child clases
+ * joined table will create one table user in this it has id name and email,
+ * another table for mentor in which we extend userjoined,
+ * all the details of mentor like id ,name and email will store in usertbale along with id,
+ * and this id will be mapped with mentor tabl
  *
  *
  *

@@ -1,28 +1,11 @@
 package com.example.productservice;
 
-import com.example.productservice.InheritenceExamples.Joined.MentorJoined;
-import com.example.productservice.InheritenceExamples.Joined.MentorRepositoryJoined;
-import com.example.productservice.InheritenceExamples.Joined.UserJoined;
-import com.example.productservice.InheritenceExamples.Joined.UserRepositoryJoined;
-import com.example.productservice.InheritenceExamples.SingleTable.Mentor;
-import com.example.productservice.InheritenceExamples.SingleTable.MentorRepository;
-import com.example.productservice.InheritenceExamples.SingleTable.User;
-import com.example.productservice.InheritenceExamples.SingleTable.UserRepository;
-import com.example.productservice.InheritenceExamples.tablePerClass.MentorRepositoryTPC;
-import com.example.productservice.InheritenceExamples.tablePerClass.MentorTPC;
-import com.example.productservice.InheritenceExamples.tablePerClass.UserRepositoryTPC;
-import com.example.productservice.InheritenceExamples.tablePerClass.UserTPC;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.List;
-
 @SpringBootApplication
-public class ProductServiceApplication implements CommandLineRunner {
-    @Autowired
+public class ProductServiceApplication /*implements CommandLineRunner*/ {
+  /*  @Autowired
     @Qualifier("st_mr")
     private MentorRepository mentorRepository;
 
@@ -40,7 +23,7 @@ public class ProductServiceApplication implements CommandLineRunner {
     @Autowired
     private MentorRepositoryJoined mentorRepositoryJoined;
     @Autowired
-    private UserRepositoryJoined userRepositoryJoined;
+    private UserRepositoryJoined userRepositoryJoined;*/
 
 //    public ProductServiceApplication(@Qualifier("st_mr") MentorRepository mentorRepository,
 //                                     @Qualifier("st_user") UserRepository userRepository
@@ -52,7 +35,7 @@ public class ProductServiceApplication implements CommandLineRunner {
         SpringApplication.run(ProductServiceApplication.class, args);
     }
 
-    @Override
+  /*  @Override
     public void run(String... args) throws Exception {
 
         Mentor mentor=new Mentor();
@@ -115,5 +98,5 @@ public class ProductServiceApplication implements CommandLineRunner {
         for(UserJoined userJoined:userJoinedList){
             System.out.println(userJoined);
         }
-    }
+    }*/
 }

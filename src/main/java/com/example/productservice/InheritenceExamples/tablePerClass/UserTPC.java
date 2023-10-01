@@ -20,8 +20,9 @@ public class UserTPC {
 }
 /**
  *
- * Single table will crate one table which will have all the columns from all the child clases
  *
+ *table per class will have each table for all entity,
+ * child class wil have all the attributes of the parent
  *
  *
  * **/
